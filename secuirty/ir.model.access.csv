@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+access_group_lounge_user,access.group.lounge.uer,model_lounge_user,group_security_user,1,0,0,0
+access_group_lounge_person,access.group.lounge.person,model_lounge_person,group_security_user,1,0,0,0

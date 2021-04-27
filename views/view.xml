@@ -1,0 +1,79 @@
+<odoo>
+    <data>
+        <record id="lounge_action" model="ir.actions.act_window">
+            <field name="name">Wedding Hall</field>
+            <field name="res_model">lounge.user</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record id="lounge_form_view" model="ir.ui.view">
+            <field name="name">Wedding Hall</field>
+            <field name="model">lounge.user</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="action_view_invoice" groups="swimming_company.group_security_manager" string="Create Invoice" type="object"/>
+                    </header>
+                    <sheet>
+                        <h3><field name="code"/></h3>
+                        <group>
+                            <group>
+                                <field name="user_id"/>
+<!--                                 attrs="{'invisible': [('state','!=', 'done')]}"-->
+                                <field name="company_id"/>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="period"/>
+                                <field name="meal"/>
+                                <field name="currency_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Information Hall">
+                                <field name="person_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="water"/>
+                                        <field name="plat"/>
+                                        <field name="seats"/>
+                                        <field name="price"/>
+                                        <field name="total"/>
+                                        <field name="lounge_ids" invisible="1"/>
+                                   </tree>
+                                </field>
+                                <group class="oe_subtotal_footer oe_right">
+                                <field name="line_water" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="line_plat" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="line_seats" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <field name="line_price" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                <div class="oe_subtotal_footer_separator oe_inline">
+                                    <label for="total"/>
+                                    <field name="total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                                    <div class="oe_clear"/>
+                                </div>
+                            </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="lounge_tree_view" model="ir.ui.view">
+            <field name="name">Wedding Hall</field>
+            <field name="model">lounge.user</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="code"/>
+                    <field name="period"/>
+                    <field name="meal"/>
+                    <field name="line_water"/>
+                    <field name="line_plat"/>
+                    <field name="line_seats"/>
+                    <field name="total"/>
+                </tree>
+            </field>
+        </record>
+        <menuitem name="Wedding Hall" id="hall_root_menu" />
+        <menuitem name="New Wedding" id="weeding_menu" parent="hall_root_menu" action="lounge_action"/>
+    </data>
+</odoo>

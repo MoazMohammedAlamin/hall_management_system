@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <record id="sequence_wadding" model="ir.sequence">
+            <field name="name">Wadding</field>
+            <field name="code">lounge.user</field>
+            <field name="prefix">W</field>
+            <field name="padding">4</field>
+        </record>
+    </data>
+</odoo>
